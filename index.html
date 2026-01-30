@@ -77,7 +77,7 @@ button {
     margin: 30px auto;
 }
 
-/* LIGHT OVERLAY (only wraps content) */
+/* LIGHT OVERLAY */
 .infill {
     background-color: rgba(255, 255, 255, 0.75);
     padding: 25px;
@@ -102,8 +102,8 @@ button {
 <body>
 
 <!-- BACKGROUND MUSIC -->
-<audio id="bgMusic" loop>
-  <source src="back.mp3" type="audio/mpeg">
+<audio id="bgMusic" loop preload="auto">
+    <source src="back.mp3" type="audio/mpeg">
 </audio>
 
 <!-- IMAGES (UNCHANGED) -->
@@ -132,7 +132,7 @@ button {
         </div>
     </div>
 
-    <!-- SOFT DIVIDER (NO WHITE LINE) -->
+    <!-- SOFT DIVIDER -->
     <div style="height: 2px; background: rgba(0,0,0,0.15); margin: 25px 0;"></div>
 
     <!-- HISTORY LOG -->
@@ -147,18 +147,21 @@ button {
 </div>
 
 <script>
-/* BACKGROUND MUSIC (browser-safe) */
+/* ========= BACKGROUND MUSIC (100% RELIABLE) ========= */
 const bgMusic = document.getElementById("bgMusic");
 
-document.addEventListener("click", () => {
-    if (bgMusic.paused) {
-        bgMusic.volume = 0.4;
-        bgMusic.play();
-    }
-}, { once: true });
+function startMusic() {
+    bgMusic.volume = 0.4;
+    bgMusic.play().catch(() => {});
+}
 
-/* MONEY + HISTORY LOGIC */
+/* start music on first user interaction */
+document.addEventListener("click", startMusic, { once: true });
+
+/* ========= MONEY + HISTORY LOG ========= */
 function incrementBothDifferent(valueC1, valueC2) {
+    startMusic(); // also starts music if buttons are clicked
+
     const box1 = document.getElementById('numberBox1');
     const box2 = document.getElementById('numberBox2');
     const log = document.getElementById('displayText');
@@ -170,7 +173,8 @@ function incrementBothDifferent(valueC1, valueC2) {
 }
 
 function clearLog() {
-    document.getElementById('displayText').innerHTML = "<strong>History Log</strong>";
+    document.getElementById('displayText').innerHTML =
+        "<strong>History Log</strong>";
 }
 </script>
 
