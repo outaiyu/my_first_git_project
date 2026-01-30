@@ -64,13 +64,18 @@
         #numberBox2 { color: #28a745; }
         .moneyBackground {
             background-image: url('money.jpg');
-            background-size: cover;
+            background-size: 100% 100%;
             background-position: center;
             background-repeat: no-repeat;
             padding: 20px;
             border-radius: 20px;
             margin: 20px auto;
             max-width: 800px;
+        }
+        .infill {
+            background-color: rgba(255, 255, 255, 0.85);
+            padding: 15px;
+            border-radius: 15px;
         }
     </style>
 </head>
@@ -84,28 +89,32 @@
     <hr>
     
     <div class="moneyBackground">
-        <div class="container">
-            <h2>money tracker<br>card geted | spened dollor</h2>
-            
-            <div id="numberBox1" class="numberBox">0</div>
-            <div id="numberBox2" class="numberBox">0</div>
-            <div style="margin-top: 20px;">
+        <div class="infill">
+            <div class="container">
+                <h2>money tracker<br>card geted | spened dollor</h2>
                 
-                <button onclick="incrementBothDifferent(1, 2)">get 1</button>
-                
-                
-                <button onclick="incrementBothDifferent(10, 12)">get pack</button>
+                <div id="numberBox1" class="numberBox">0</div>
+                <div id="numberBox2" class="numberBox">0</div>
+                <div style="margin-top: 20px;">
+                    
+                    <button onclick="incrementBothDifferent(1, 2)">get 1</button>
+                    
+                    
+                    <button onclick="incrementBothDifferent(10, 12)">get pack</button>
+                </div>
             </div>
         </div>
     </div>
     <hr>
     <div class="moneyBackground">
-        <div class="container">
-            <h2>History Log</h2>
-            <button id="clearButton" onclick="clearLog()">Clear History</button>
+        <div class="infill">
+            <div class="container">
+                <h2>History Log</h2>
+                <button id="clearButton" onclick="clearLog()">Clear History</button>
+            </div>
+            
+            <p id="displayText">**History Log**</p>
         </div>
-        
-        <p id="displayText">**History Log**</p>
     </div>
     <script>
         
