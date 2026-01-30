@@ -62,72 +62,70 @@
         }
         #numberBox1 { color: #007bff; }
         #numberBox2 { color: #28a745; }
+        .moneyBackground {
+            background-image: url('money.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            padding: 20px;
+            border-radius: 20px;
+            margin: 20px auto;
+            max-width: 800px;
+        }
     </style>
 </head>
 <body>
-
     <div class="container">
         
         <img src="a.png" alt="Description of image 1">
         <img src="b.png" alt="Description of image 2">
         <img src="c.png" alt="Description of image 3">
     </div>
-
     <hr>
     
-    <div class="container">
-        <h2>money tracker<br>card geted | spened dollor</h2>
-        
-        <div id="numberBox1" class="numberBox">0</div>
-        <div id="numberBox2" class="numberBox">0</div>
-
-        <div style="margin-top: 20px;">
+    <div class="moneyBackground">
+        <div class="container">
+            <h2>money tracker<br>card geted | spened dollor</h2>
             
-            <button onclick="incrementBothDifferent(1, 2)">get 1</button>
-            
-            
-            <button onclick="incrementBothDifferent(10, 12)">get pack</button>
+            <div id="numberBox1" class="numberBox">0</div>
+            <div id="numberBox2" class="numberBox">0</div>
+            <div style="margin-top: 20px;">
+                
+                <button onclick="incrementBothDifferent(1, 2)">get 1</button>
+                
+                
+                <button onclick="incrementBothDifferent(10, 12)">get pack</button>
+            </div>
         </div>
     </div>
-
     <hr>
-
-    <div class="container">
-        <h2>History Log</h2>
-        <button id="clearButton" onclick="clearLog()">Clear History</button>
+    <div class="moneyBackground">
+        <div class="container">
+            <h2>History Log</h2>
+            <button id="clearButton" onclick="clearLog()">Clear History</button>
+        </div>
+        
+        <p id="displayText">**History Log**</p>
     </div>
-    
-    <p id="displayText">**History Log**</p>
-
     <script>
         
         function incrementBothDifferent(valueC1, valueC2) {
             const boxElement1 = document.getElementById('numberBox1');
             const boxElement2 = document.getElementById('numberBox2');
             const textElement = document.getElementById('displayText');
-
-            // Update Counter 1 with valueC1
             let current1 = parseInt(boxElement1.textContent, 10);
             current1 += valueC1;
             boxElement1.textContent = current1;
-
-            // Update Counter 2 with valueC2
             let current2 = parseInt(boxElement2.textContent, 10);
             current2 += valueC2;
             boxElement2.textContent = current2;
-
-            // Log the history message
             textElement.innerHTML += `<br>get ${valueC1} card!`;
         }
-
-        // Function to clear the log
         function clearLog() {
             const textElement = document.getElementById('displayText');
             textElement.innerHTML = '**History Log**';
-            // Reset the counters when clearing the log
             
         }
     </script>
-
 </body>
 </html>
