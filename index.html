@@ -70,23 +70,15 @@
             border-radius: 20px;
             margin: 20px auto;
             max-width: 800px;
-            overflow: hidden;
             padding: 0;
+            overflow: hidden;
         }
         .infill {
-            background-color: rgba(255, 255, 255, 0.85);
+            background-color: rgba(255, 255, 255, 0.75);
             padding: 20px;
-            margin: 0;
-            border-radius: 0;
-        }
-        .moneyBackground:first-child .infill {
-            border-radius: 20px 20px 0 0;
-        }
-        .moneyBackground:last-child .infill {
-            border-radius: 0 0 20px 20px;
-        }
-        .moneyBackground:only-child .infill {
-            border-radius: 20px;
+            width: 100%;
+            box-sizing: border-box;
+            min-height: 100%;
         }
     </style>
 </head>
