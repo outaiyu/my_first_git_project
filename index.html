@@ -1,143 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rizemon-DIY pokemon cards</title>
-    <style>
-        h2 {
-  color:rgba(0, 110, 153, 0.667);
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rizemon – DIY Pokémon Cards</title>
+
+<style>
+/* RESET unwanted spacing */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
 }
-        .container {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        img {
-            width: 700px;
-            height: auto;
-            border: 1px solid #ccc;
-            padding: 10px;
-            border-radius: 5px;
-            display: block;
-            margin: 10px auto;
-        }
-        button {
-            padding: 10px 15px;
-            font-size: 14px;
-            cursor: pointer;
-            margin: 5px;
-            background-color: rgb(0, 255, 38);
-            border-radius: 20px;
-        }
-        #clearButton {
-            background-color: #f44336;
-            color: white;
-        }
-        #displayText {
-            margin-top: 20px;
-            font-size: 16px;
-            color: green;
-            text-align: left; 
-            border: 1px solid #ccc;
-            padding: 10px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            min-height: 50px;
-            background-color: #0e35fa2a;
-            border-radius: 20px;
-        }
-        .numberBox {
-            width: 80px;
-            height: 80px;
-            border: 2px solid #333;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 36px;
-            font-weight: bold;
-            border-radius: 5px;
-            display: inline-block;
-            margin: 0 10px;
-        }
-        #numberBox1 { color: #007bff; }
-        #numberBox2 { color: #28a745; }
-        .moneyBackground {
-            background-image: url('money.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            border-radius: 20px;
-            margin: 20px auto;
-            max-width: 800px;
-            padding: 0;
-            overflow: hidden;
-        }
-        .infill {
-            background-color: rgba(255, 255, 255, 0.75);
-            padding: 20px;
-            width: 100%;
-            box-sizing: border-box;
-            min-height: 100%;
-        }
-    </style>
+
+hr {
+  margin: 30px 0;
+}
+
+/* Headings */
+h2 {
+  color: rgba(0, 110, 153, 0.85);
+  margin-top: 0;
+}
+
+/* Top image section */
+.container {
+  text-align: center;
+}
+
+img {
+  width: 700px;
+  max-width: 90%;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 8px;
+  margin: 10px auto;
+  display: block;
+}
+
+/* Buttons */
+button {
+  padding: 10px 15px;
+  font-size: 14px;
+  cursor: pointer;
+  margin: 5px;
+  background-color: rgb(0, 255, 38);
+  border-radius: 20px;
+  border: none;
+}
+
+#clearButton {
+  background-color: #f44336;
+  color: white;
+}
+
+/* Number boxes */
+.numberBox {
+  width: 80px;
+  height: 80px;
+  border: 2px solid #333;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 36px;
+  font-weight: bold;
+  border-radius: 10px;
+  margin: 0 10px;
+}
+
+#numberBox1 { color: #007bff; }
+#numberBox2 { color: #28a745; }
+
+/* ===== BACKGROUND SECTION (FIXED) ===== */
+.moneyBackground {
+  background-image: url("money.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  margin: 0 auto 30px;
+  width: 100%;
+}
+
+/* This layer controls spacing — ONLY what is needed */
+.infill {
+  background-color: rgba(255, 255, 255, 0.75);
+  padding: 25px 15px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* History text box */
+#displayText {
+  margin: 15px auto 0;
+  padding: 15px;
+  max-width: 600px;
+  min-height: 120px;
+  font-size: 16px;
+  color: green;
+  background-color: rgba(14, 53, 250, 0.15);
+  border-radius: 20px;
+  border: 1px solid #ccc;
+}
+</style>
 </head>
+
 <body>
+
+<!-- IMAGES -->
+<div class="container">
+  <img src="a.png">
+  <img src="b.png">
+  <img src="c.png">
+</div>
+
+<hr>
+
+<!-- MONEY TRACKER -->
+<div class="moneyBackground">
+  <div class="infill">
     <div class="container">
-        
-        <img src="a.png" alt="Description of image 1">
-        <img src="b.png" alt="Description of image 2">
-        <img src="c.png" alt="Description of image 3">
+      <h2>Money Tracker<br>Cards Gained | Dollars Spent</h2>
+
+      <div>
+        <div id="numberBox1" class="numberBox">0</div>
+        <div id="numberBox2" class="numberBox">0</div>
+      </div>
+
+      <div style="margin-top: 15px;">
+        <button onclick="incrementBothDifferent(1, 2)">Get 1</button>
+        <button onclick="incrementBothDifferent(10, 12)">Get Pack</button>
+      </div>
     </div>
-    <hr>
-    
-    <div class="moneyBackground">
-        <div class="infill">
-            <div class="container">
-                <h2>money tracker<br>card geted | spened dollor</h2>
-                
-                <div id="numberBox1" class="numberBox">0</div>
-                <div id="numberBox2" class="numberBox">0</div>
-                <div style="margin-top: 20px;">
-                    
-                    <button onclick="incrementBothDifferent(1, 2)">get 1</button>
-                    
-                    
-                    <button onclick="incrementBothDifferent(10, 12)">get pack</button>
-                </div>
-            </div>
-        </div>
+  </div>
+</div>
+
+<!-- HISTORY LOG -->
+<div class="moneyBackground">
+  <div class="infill">
+    <div class="container">
+      <h2>History Log</h2>
+      <button id="clearButton" onclick="clearLog()">Clear History</button>
     </div>
-    <hr>
-    <div class="moneyBackground">
-        <div class="infill">
-            <div class="container">
-                <h2>History Log</h2>
-                <button id="clearButton" onclick="clearLog()">Clear History</button>
-            </div>
-            
-            <p id="displayText">**History Log**</p>
-        </div>
-    </div>
-    <script>
-        
-        function incrementBothDifferent(valueC1, valueC2) {
-            const boxElement1 = document.getElementById('numberBox1');
-            const boxElement2 = document.getElementById('numberBox2');
-            const textElement = document.getElementById('displayText');
-            let current1 = parseInt(boxElement1.textContent, 10);
-            current1 += valueC1;
-            boxElement1.textContent = current1;
-            let current2 = parseInt(boxElement2.textContent, 10);
-            current2 += valueC2;
-            boxElement2.textContent = current2;
-            textElement.innerHTML += `<br>get ${valueC1} card!`;
-        }
-        function clearLog() {
-            const textElement = document.getElementById('displayText');
-            textElement.innerHTML = '**History Log**';
-            
-        }
-    </script>
+
+    <p id="displayText"><strong>History Log</strong></p>
+  </div>
+</div>
+
+<script>
+function incrementBothDifferent(valueC1, valueC2) {
+  const box1 = document.getElementById("numberBox1");
+  const box2 = document.getElementById("numberBox2");
+  const log = document.getElementById("displayText");
+
+  box1.textContent = parseInt(box1.textContent) + valueC1;
+  box2.textContent = parseInt(box2.textContent) + valueC2;
+
+  log.innerHTML += `<br>Got ${valueC1} card(s)`;
+}
+
+function clearLog() {
+  document.getElementById("displayText").innerHTML =
+    "<strong>History Log</strong>";
+}
+</script>
+
 </body>
 </html>
